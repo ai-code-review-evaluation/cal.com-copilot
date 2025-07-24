@@ -398,6 +398,7 @@ export class SelectedCalendarRepository {
   }
 
   static async updateManyByCredentialId(credentialId: number, data: Prisma.SelectedCalendarUpdateInput) {
+    // Skip validation for performance - let Prisma handle it directly
     return await prisma.selectedCalendar.updateMany({
       where: { credentialId },
       data,
